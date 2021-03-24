@@ -1,0 +1,9 @@
+# A+B - 3
+# https://www.acmicpc.net/problem/10950
+# 2021.01.05
+
+T = int(input())
+
+for i in range(T):
+    A, B = map(int, input().split())
+    print(A+B)
