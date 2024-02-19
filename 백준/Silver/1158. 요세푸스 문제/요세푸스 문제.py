@@ -9,4 +9,4 @@ for _ in range(N):
     del people[this_idx]
     next_idx = this_idx
 
-print("<" + ", ".join(str(i) for i in order) + ">")
+print("<" + ", ".join(str(person) for person in order) + ">")
