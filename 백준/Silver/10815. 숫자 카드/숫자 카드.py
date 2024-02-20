@@ -1,24 +1,12 @@
-def binary_search(value):
-    left = 0
-    right = N - 1
-    while left <= right:
-        mid = (left + right) // 2
-        if value < cards[mid]:
-            right = mid - 1
-        elif value > cards[mid]:
-            left = mid + 1
-        else:
-            return "1"
-    return "0"
+import sys
 
+input = sys.stdin.readline
+print = sys.stdout.write
 
-N = int(input())
-cards = list(map(int, input().split()))
-M = int(input())
-values = list(map(int, input().split()))
+_ = input()
+cards = set(input().split())
+_ = input()
+nums = input().split()
 
-
-cards.sort()
-
-answer = [binary_search(value) for value in values]
-print(" ".join(answer))
+answers = ["1" if (num in cards) else "0" for num in nums]
+print(" ".join(answers))
