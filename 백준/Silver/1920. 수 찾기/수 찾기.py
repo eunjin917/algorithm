@@ -1,30 +1,12 @@
 import sys
 
 input = sys.stdin.readline
-output = sys.stdout.write
+print = sys.stdout.write
 
+_ = input()
+A = set(input().split())
+_ = input()
+nums = input().split()
 
-def binary_search(num):
-    left = 0
-    right = N - 1
-
-    while left <= right:
-        mid = (left + right)//2
-        if A[mid] == num:
-            return 1
-        elif A[mid] < num:
-            left = mid + 1
-        elif A[mid] > num:
-            right = mid - 1
-    return 0
-
-
-N = int(input())
-A = list(map(int, input().split()))
-A.sort()
-
-M = int(input())
-nums = list(map(int, input().split()))
-
-for num in nums:
-    print(binary_search(num))
+answers = ["1" if (num in A) else "0" for num in nums]
+print("\n".join(answers))
