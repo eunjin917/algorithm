@@ -1,6 +1,8 @@
 import sys
+
 input = sys.stdin.readline
-output = sys.stdout.write
+print = sys.stdout.write
+
 
 class Deque:
     arr = []
@@ -43,14 +45,11 @@ class Deque:
 
 
 def execute(deque, command):
-    if command.startswith("push_back"):
-        _, number = command.split()
-        return deque.push_back(number)
-    elif command.startswith("push_front"):
-        _, number = command.split()
-        return deque.push_front(number)
-
-    match command:
+    match command[0]:
+        case "push_back":
+            return deque.push_back(command[1])
+        case "push_front":
+            return deque.push_front(command[1])
         case "pop_front":
             return deque.pop_front()
         case "pop_back":
@@ -68,6 +67,6 @@ def execute(deque, command):
 N = int(input())
 deque = Deque()
 for _ in range(N):
-    result = execute(deque, input().rstrip())
+    result = execute(deque, input().split())
     if result != None:
-        print(result)
+        print(str(result)+'\n')
