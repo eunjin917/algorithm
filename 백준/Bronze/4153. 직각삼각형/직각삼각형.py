@@ -8,8 +8,7 @@ while True:
     if testcase == [0, 0, 0]:
         break
 
-    M = max(testcase)
-    if sum([length**2 for length in testcase]) == 2 * M**2:
+    if sum([length**2 for length in testcase]) == 2 * max(testcase) ** 2:
         print("right\n")
     else:
         print("wrong\n")
