@@ -1,9 +1,13 @@
 N = int(input())
 for _ in range(N):
     testcase = input()
+
+    O_flag = 0
     score = 0
-    for idx, problem in enumerate(testcase):
-        X_start = testcase.find("X", idx)
-        end = X_start if X_start != -1 else len(testcase)
-        score += testcase.count("O", idx, end)
+    for problem in testcase:
+        if problem == "O":
+            O_flag += 1
+            score += O_flag
+        else:
+            O_flag = 0
     print(score)
