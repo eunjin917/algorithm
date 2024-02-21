@@ -4,23 +4,16 @@ input = sys.stdin.readline
 print = sys.stdout.write
 
 N = int(input())
-cards = list(map(int, input().split()))
+cards = input().split()
 M = int(input())
-find_cards = list(map(int, input().split()))
+find_cards = input().split()
 
 count_cards = {}
 
 for card in cards:
-    if card in count_cards.keys():
+    if card in count_cards:
         count_cards[card] += 1
     else:
         count_cards[card] = 1
 
-print(
-    " ".join(
-        [
-            str(count_cards[find_card]) if (find_card in count_cards.keys()) else "0"
-            for find_card in find_cards
-        ]
-    )
-)
+print(" ".join([str(count_cards.get(find_card, 0)) for find_card in find_cards]))
