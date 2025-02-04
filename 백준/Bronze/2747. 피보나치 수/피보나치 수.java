@@ -12,6 +12,7 @@ public class Main {
         // N 입력 : 10
         int N = Integer.parseInt(br.readLine());
         dp = new int[N+1];
+        dp[0] = 0;
         dp[1] = 1;
 
         // dp[N] 출력 : 55
@@ -21,7 +22,7 @@ public class Main {
 
     public static int fibo(int N) {
         // 메모이제이션
-        if (dp[N] != 0 || N == 0) {
+        if (dp[N] != 0 || N == 0) { // N == 0 : dp[0] = 0으로 초기화했기 때문
             return dp[N];
         }
 
