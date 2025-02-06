@@ -14,7 +14,7 @@ public class Main {
             .toArray();
         Arrays.sort(A);
         
-        // (N번 반복) 누적합
+        // (N번 반복) 투포인터
         int countGood = 0;
         for (int i = 0; i < N; i++) {
             int left = 0;
