@@ -1,9 +1,7 @@
-def dfs(idx, result, numbers, target):
-    if idx == len(numbers):
-        return 1 if result == target else 0
-    return (dfs(idx+1, result+numbers[idx], numbers, target)
-            + dfs(idx+1, result-numbers[idx], numbers, target))
+from itertools import product
 
 def solution(numbers, target):
-    answer = dfs(0, 0, numbers, target)
+    choices = [(number, -number) for number in numbers]
+    candidates = product(*choices)
+    answer = sum(1 for candidate in candidates if sum(candidate) == target)
     return answer
