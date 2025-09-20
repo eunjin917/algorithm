@@ -1,0 +1,24 @@
+WITH N AS (
+    SELECT COUNT(*) AS TOTAL
+    FROM ECOLI_DATA
+),
+R AS (
+    SELECT
+        ID,
+        RANK() OVER (ORDER BY SIZE_OF_COLONY DESC) AS RNK
+    FROM ECOLI_DATA
+)
+
+SELECT
+    R.ID,
+    CASE
+        WHEN R.RNK/N.TOTAL <= 0.25
+            THEN 'CRITICAL'
+        WHEN R.RNK/N.TOTAL <= 0.5
+            THEN 'HIGH'
+        WHEN R.RNK/N.TOTAL <= 0.75
+            THEN 'MEDIUM'
+        ELSE 'LOW'
+    END AS COLONY_NAME
+FROM R CROSS JOIN N
+ORDER BY R.ID;
