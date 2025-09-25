@@ -1,8 +1,6 @@
 import java.util.*;
 
-class Solution {
-    
-    class Plan {
+class Plan {
         String name;
         int startTime;
         int playTime;
@@ -12,13 +10,9 @@ class Solution {
             this.startTime = startTime;
             this.playTime = playTime;
         }
-        
-        public String toString() {
-            return name+" / "+startTime+" / "+playTime;
-        }
     }
-    
 
+class Solution {
     public List<String> solution(String[][] plans) {
         // 시간순 정렬
         Arrays.sort(plans, (a, b)->a[1].compareTo(b[1]));
@@ -38,8 +32,6 @@ class Solution {
         List<String> answer = new ArrayList<>();
         for (int i=1; i<n; i++) {
             Plan curPlan = planTasks[i];
-            
-            // System.out.println(answer+"///. "+Arrays.toString(stack.toArray()));
             
             // 이 시간 이전을 확인
             int remain = curPlan.startTime - beforePlan.startTime;
